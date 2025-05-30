@@ -26,7 +26,7 @@ impl Default for ProductionConfig {
             .and_then(|port| port.parse().ok())
             .unwrap_or(4000);
         base.mongo_uri = env::var("MONGODB_URI")
-            .unwrap_or_else(|_| "mongodb://mongo:27017".to_string());
+            .unwrap_or_else(|_| "mongodb://localhost:27017".to_string());
         base.mongo_db = env::var("MONGODB_DB")
             .unwrap_or_else(|_| "graphql_rust_prod_db".to_string());
         
