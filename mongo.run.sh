@@ -17,11 +17,11 @@ check_mongo_connection() {
 
 # Dừng container MongoDB hiện tại nếu có
 echo "🛑 Dừng container MongoDB hiện tại nếu có..."
-docker-compose down
+docker-compose -f docker-compose.mongo.yml down
 
 # Khởi động MongoDB bằng Docker Compose
 echo "🚀 Khởi động MongoDB..."
-docker-compose up -d
+docker-compose -f docker-compose.mongo.yml up -d
 
 # Kiểm tra kết nối MongoDB
 check_mongo_connection
@@ -35,4 +35,4 @@ echo "🔨 Biên dịch và chạy ứng dụng GraphQL Rust..."
 cargo run
 
 # Bắt tín hiệu SIGINT (Ctrl+C) để dừng ứng dụng và container
-trap 'echo "🛑 Đang dừng ứng dụng và container..."; docker-compose down; exit 0' SIGINT
+trap 'echo "🛑 Đang dừng ứng dụng và container..."; docker-compose -f docker-compose.mongo.yml down; exit 0' SIGINT
