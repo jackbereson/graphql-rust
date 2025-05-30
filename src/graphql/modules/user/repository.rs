@@ -6,7 +6,7 @@ use async_graphql::ID;
 use crate::graphql::modules::user::model::User;
 
 pub struct UserRepository {
-    collection: Collection<User>,
+    pub collection: Collection<User>,
 }
 
 impl UserRepository {

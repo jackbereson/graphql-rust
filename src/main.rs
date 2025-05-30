@@ -3,6 +3,9 @@ use async_graphql_axum::{GraphQLRequest, GraphQLResponse};
 use tokio::net::TcpListener;
 use dotenv::dotenv;
 
+// Import base module from the library crate
+extern crate graphql_rust;
+
 mod db;
 mod graphql;
 mod configs;
